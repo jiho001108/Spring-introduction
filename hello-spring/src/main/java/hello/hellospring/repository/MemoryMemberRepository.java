@@ -4,7 +4,8 @@ import hello.hellospring.domain.Member;
 
 import java.util.*;
 
-/* DB대신할 메모리 구현체 클래스 만들기 */
+/* DB대신할 메모리 구현체 클래스 만들기
+* 회원 리포지토리 메모리 구현체 */
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>(); /* <키, 값>, <key, value>, <id, name> */
