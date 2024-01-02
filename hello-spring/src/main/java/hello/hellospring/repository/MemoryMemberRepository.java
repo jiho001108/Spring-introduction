@@ -39,4 +39,8 @@ public class MemoryMemberRepository implements MemberRepository {
         return new ArrayList<>(store.values()); // store의 모든 값(모든 Member 객체)을 포함한 새로운 배열 생성
                                                 // store에 있는 values는 멤버들이다
     }
+
+    public void clearStore() {
+        store.clear(); // store를 비움
+    }
 }
