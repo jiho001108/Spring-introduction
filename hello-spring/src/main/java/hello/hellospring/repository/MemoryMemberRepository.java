@@ -5,7 +5,7 @@ import hello.hellospring.domain.Member;
 import java.util.*;
 
 /* DB대신할 메모리 구현체 클래스 만들기
-* 회원 리포지토리 메모리 구현체 */
+ * 회원 리포지토리 메모리 구현체 */
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>(); /* <키, 값>, <key, value>, <id, name> */
@@ -37,7 +37,7 @@ public class MemoryMemberRepository implements MemberRepository {
     /*  모든 Member 객체의 리스트를 반환한다. */
     public List<Member> findAll() {
         return new ArrayList<>(store.values()); // store의 모든 값(모든 Member 객체)을 포함한 새로운 배열 생성
-                                                // store에 있는 values는 멤버들이다
+        // store에 있는 values는 멤버들이다
     }
 
     public void clearStore() {

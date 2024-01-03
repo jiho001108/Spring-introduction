@@ -9,7 +9,10 @@ import java.util.Optional;
 
 public class MemberService {
     /* 회원 서비스를 만드려면 회원 리포지토리가 있어야겠지? */
-    private final MemberRepository memberRepository = new MemoryMemberRepository(); // 새로운 객체인데 괜찮으려나?
+    private final MemberRepository memberRepository;
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /* 회원가입 서비스
      * 비즈니스 로직: 같은 이름을 가진 회원이 있으면 안됨! */
@@ -23,9 +26,9 @@ public class MemberService {
     }
 
     private void validateDuplicateMember(Member member) {
-        memberRepository.findById(member.getId())
+        memberRepository.findByName(member.getName())
                 .ifPresent(m -> {
-                    throw new IllegalArgumentException("이미 존재하는 회원입니다.");
+                    throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
     }
 
