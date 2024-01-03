@@ -3,10 +3,11 @@ package hello.hellospring.service;
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service // 회원 서비스 스프링 빈 등록
 public class MemberService {
     /* 회원 서비스를 만드려면 회원 리포지토리가 있어야겠지? */
     private final MemberRepository memberRepository;
